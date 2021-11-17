@@ -6,6 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 const employeeRoutes = require('./routes/EmployeeRoutes.js')
+const adminRoutes = require('./routes/AdminRoutes.js')
 var cors = require('cors');
 app.use(cors());
 
@@ -22,6 +23,8 @@ mongoose.connect(DB_URL, {
 })
 
 app.use('/', employeeRoutes)
+
+app.use('/', adminRoutes)
 
 app.listen(8029, ()=> {
     console.log('Server is listening on port 8029')
