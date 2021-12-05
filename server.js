@@ -10,7 +10,7 @@ const employeeRoutes = require('./routes/EmployeeRoutes.js')
 const adminRoutes = require('./routes/AdminRoutes.js')
 var cors = require('cors');
 app.use(cors());
-
+console.log("working")
 mongoose.Promise = global.Promise;
 
 mongoose.connect(DB_URL, {
