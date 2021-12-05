@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+require('dotenv').config();
 const mongoose = require('mongoose')
-const DB_URL = "mongodb+srv://cartercomeau:daisy1@comp3123.qdcbr.mongodb.net/101253879_assignment2?retryWrites=true&w=majority"
+const DB_URL = `mongodb+srv://cartercomeau:${process.env.DB_PASSWORD}@comp3123.qdcbr.mongodb.net/101253879_assignment2?retryWrites=true&w=majority`
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
