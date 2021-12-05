@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const mongoose = require('mongoose')
 const DB_URL = process.env.DB_CONN_URL
+console.log(process.env.DB_CONN_URL)
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
