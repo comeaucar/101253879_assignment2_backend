@@ -4,7 +4,7 @@
   "description": "Backend for Assingment 2 using node, express and mongoDB/mongoose",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -27,5 +27,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.15.4"
   }
 }
