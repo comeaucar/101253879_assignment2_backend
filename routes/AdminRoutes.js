@@ -6,10 +6,12 @@ const jwt = require('jsonwebtoken')
 require("dotenv").config()
 const auth = require('../auth.js')
 
+process.env.TOKEN_KEY = "tokenkey"
+
 //register
 router.post('/api/v1/register', async(req,res)=>{
     try{
-        const {username, password} = req.body
+        const {username, password} = req.body.newAdmin
 
         if(!(username && password)){
             res.status(500).send("Missing Input")
@@ -50,10 +52,10 @@ router.post('/api/v1/register', async(req,res)=>{
 //login
 router.post('/api/v1/login', async(req,res) => {
     try{
-        const {username, password} = req.body
+        const {username, password} = req.body.newAdmin
 
-        if(!(username, password)){
-            res.status(400).send("Missing Input")
+        if(!(username && password)){
+            res.status(500).send("Missing Input")
         }
 
         const admin = await adminModel.findOne({username})
@@ -70,7 +72,6 @@ router.post('/api/v1/login', async(req,res) => {
             admin.token = token;
 
         res.status(200).json(admin)
-        return
         }
 
         res.status(400).send("Username or Password is Incorrect")
@@ -81,7 +82,7 @@ router.post('/api/v1/login', async(req,res) => {
 
 
 router.post('/api/v1/welcome', auth, (req,res) => {
-    res.status(200).send("Welcome!!!!!")
+    res.status(200).send("Welcome")
 })
 
 module.exports = router
